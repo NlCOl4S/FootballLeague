@@ -38,7 +38,9 @@ public class SecurityConfig {
                         req
                                 .requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/players/**", "/api/teams/**").hasAnyRole("USER", "ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/api/players/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/players/**", "/api/teams/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/players/**", "/api/teams/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/players/**", "/api/teams/**").hasRole("ADMIN")
                                 .anyRequest()
                                 .authenticated()
                 )

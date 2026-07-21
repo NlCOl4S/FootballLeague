@@ -26,4 +26,17 @@ public class TeamController {
         TeamDTO saveTeam = teamService.saveTeam(teamDTO);
         return ResponseEntity.ok(saveTeam);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TeamDTO> updateTeam(@PathVariable Long id,@RequestBody TeamDTO teamDTO){
+        TeamDTO updateTeam = teamService.updateTeam(id, teamDTO);
+        return ResponseEntity.ok(updateTeam);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTeam(@PathVariable Long id){
+        teamService.deleteTeam(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
