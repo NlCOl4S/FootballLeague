@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +23,7 @@ public class TeamService {
     }
 
     public List<TeamDTO> getAllTeams(){
-        return repository.findAll().stream().map(TeamMapper::toDTO)
-                .collect(Collectors.toList());
+        return null;
     }
 
 }

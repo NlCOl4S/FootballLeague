@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,8 +24,7 @@ public class PlayerService {
 
 
     public List<PlayerDTO> getAllPlayers(){
-        return repository.findAll().stream().map(PlayerMapper::toDTO) //Viene de la bbdd y lo clona en toDTO
-                .collect(Collectors.toList()); //Ponerlo en la lista
+        return null;
     }
 
 
