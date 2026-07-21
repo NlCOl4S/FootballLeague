@@ -37,6 +37,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req ->
                         req
                                 .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers( //Habilitar acceso publico a Swagger
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs/**",
+                                        "/swagger-resources/**",
+                                        "/webjars/**"
+                                ).permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/players/**", "/api/teams/**").hasAnyRole("USER", "ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/api/players/**", "/api/teams/**").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT, "/api/players/**", "/api/teams/**").hasRole("ADMIN")
