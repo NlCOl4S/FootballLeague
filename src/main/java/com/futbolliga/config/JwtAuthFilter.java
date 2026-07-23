@@ -40,7 +40,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
-        if (request.getServletPath().contains("/api/v1/auth")) {
+        if (request.getServletPath().contains("/api/auth")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -72,7 +72,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 final boolean isTokenValid = jwtService.isTokenValid(jwt, user.get());
 
                 if (isTokenValid) {
-                    System.out.println(">>> AUTORIDADES DEL USUARIO: " + userDetails.getAuthorities());
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,

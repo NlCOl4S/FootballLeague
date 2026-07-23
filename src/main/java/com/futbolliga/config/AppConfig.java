@@ -24,7 +24,7 @@ public class AppConfig {
     //De que forma Spring puede ver si el usuario existe (pide el email)
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> {
+        return username -> { //Apenas se construya el username este es enviado a AuthenticationProvider
             final User user = repository.findByEmail(username)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
 
@@ -35,7 +35,7 @@ public class AppConfig {
                     .username(user.getEmail())
                     .password(user.getPassword())
                     .authorities(roleName) // Asiga un rol
-                    .build();
+                    .build(); //Devuelve el usuario a SecurityContext para que lo pueda leer requestMatchers
         };
     }
 
@@ -44,7 +44,7 @@ public class AppConfig {
     public AuthenticationProvider authenticationProvider() {
         //Invocamos los métodos @Bean definidos abajo en la misma clase
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService());
-        authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setPasswordEncoder(passwordEncoder()); //Compara la contraseña que viene con la que se encripto en la bbdd
         return authProvider;
     }
 
