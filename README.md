@@ -1,5 +1,14 @@
 # ⚽ Football League API (V1.0)
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-17+-orange.svg" alt="Java Version">
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/Spring%20Security-JWT-blueviolet.svg" alt="Spring Security">
+  <img src="https://img.shields.io/badge/Database-MySQL-yellow.svg" alt="MySQL">
+  <img src="https://img.shields.io/badge/Swagger-OpenAPI-brightgreen.svg" alt="Swagger">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
+
 API REST backend desarrollada para la gestión de una liga de fútbol, construida con Java y el ecosistema de Spring Boot. El proyecto cuenta con arquitectura segura basada en JWT, manejo centralizado de excepciones y documentación interactiva mediante OpenAPI/Swagger.
 
 ---
